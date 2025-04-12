@@ -1,0 +1,10 @@
+/* src/components/GameMap.css */
+.game-map {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #ccc;
+    background-image:
+        repeating-linear-gradient(90deg, transparent, transparent 49px, #eee 50px),
+        repeating-linear-gradient(180deg, transparent, transparent 49px, #eee 50px);
+}

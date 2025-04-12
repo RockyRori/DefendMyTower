@@ -1,0 +1,8 @@
+/* src/pages/GamePage.css */
+.game-page {
+    text-align: center;
+}
+
+.game-page button {
+    margin-bottom: 10px;
+}
