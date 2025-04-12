@@ -1,0 +1,25 @@
+[{
+        "id": "enemy1",
+        "name": "Goblin",
+        "health": 100,
+        "maxHealth": 100,
+        "speed": 1,
+        "element": "fire",
+        "isFlying": false,
+        "reward": 20,
+        "damage": 1,
+        "imgPath": "/assets/enemies/goblin.png"
+    },
+    {
+        "id": "enemy2",
+        "name": "Orc",
+        "health": 150,
+        "maxHealth": 150,
+        "speed": 0.8,
+        "element": "wood",
+        "isFlying": false,
+        "reward": 30,
+        "damage": 2,
+        "imgPath": "/assets/enemies/orc.png"
+    }
+]

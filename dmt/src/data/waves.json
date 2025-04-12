@@ -1,0 +1,55 @@
+{
+    "levels": [{
+            "levelId": "level1",
+            "waves": [{
+                    "waveNumber": 1,
+                    "enemies": [{
+                        "enemyId": "enemy1",
+                        "count": 5,
+                        "interval": 1
+                    }]
+                },
+                {
+                    "waveNumber": 2,
+                    "enemies": [{
+                            "enemyId": "enemy1",
+                            "count": 8,
+                            "interval": 0.8
+                        },
+                        {
+                            "enemyId": "enemy2",
+                            "count": 3,
+                            "interval": 1.5
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "levelId": "level2",
+            "waves": [{
+                    "waveNumber": 1,
+                    "enemies": [{
+                            "enemyId": "enemy1",
+                            "count": 6,
+                            "interval": 1
+                        },
+                        {
+                            "enemyId": "enemy2",
+                            "count": 2,
+                            "interval": 1.2
+                        }
+                    ]
+                },
+                {
+                    "waveNumber": 2,
+                    "enemies": [{
+                        "enemyId": "enemy2",
+                        "count": 5,
+                        "interval": 1.5
+                    }]
+                }
+            ]
+        }
+    ]
+}

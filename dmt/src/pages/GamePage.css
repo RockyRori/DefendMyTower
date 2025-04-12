@@ -1,8 +1,25 @@
-/* src/pages/GamePage.css */
 .game-page {
     text-align: center;
 }
 
-.game-page button {
+.header-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     margin-bottom: 10px;
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.tower-selection button {
+    margin: 0 5px;
+}
+
+.tower-selection .selected {
+    background-color: #4caf50;
+    color: white;
+}
+
+.info span {
+    margin: 0 10px;
 }

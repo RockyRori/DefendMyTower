@@ -1,0 +1,11 @@
+[{
+        "id": "arrow",
+        "speed": 3,
+        "imgPath": "/assets/bullets/arrow.png"
+    },
+    {
+        "id": "cannonball",
+        "speed": 2,
+        "imgPath": "/assets/bullets/cannonball.png"
+    }
+]

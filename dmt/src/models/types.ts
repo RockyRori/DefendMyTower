@@ -1,24 +1,66 @@
 // src/models/types.ts
+
 export interface Position {
   x: number;
   y: number;
 }
 
-export interface Tower {
+export type ElementType = 'metal' | 'wood' | 'water' | 'fire' | 'earth';
+
+/** 塔的静态配置，来源于 JSON 配置文件 */
+export interface TowerTemplate {
   id: string;
-  position: Position;
-  range: number;    // 攻击范围，单位：格子数
-  damage: number;   // 每次攻击的伤害
-  level: number;
+  type: string;
+  maxLevel: number;
+  stage: number;
+  evolutionCost: number;
+  buyCost: number;
+  range: number;
+  damageMin: number;
+  damageMax: number;
+  attackInterval: number;
+  critChance: number;
+  critMultiplier: number;
+  element: ElementType;
+  canAttackAir: boolean;
+  aoeRadius: number;
+  specialEffect?: string;
+  projectileType: string;
+  nextTowerIds: string[];
+  imgPath: string;
 }
 
-export interface Enemy {
-  id: string;
+export interface Tower extends TowerTemplate {
   position: Position;
+  level: number;
+  levelUpCost: number;
+  lastShotTime?: number;
+  createdAt: number;
+}
+
+export interface EnemyTemplate {
+  id: string;
+  name: string;
   health: number;
-  speed: number;    // 每秒或每帧移动的步长
-  path: Position[]; // 行进路径，为网格节点序列
-  progress: number; // 当前在路径中的进度（浮点数，用于插值动画）
+  maxHealth: number;
+  speed: number;
+  element: ElementType;
+  isFlying: boolean;
+  reward: number;
+  damage: number;
+  imgPath: string;
+}
+
+export interface Enemy extends EnemyTemplate {
+  position: Position;
+  path: Position[];
+  progress: number;
+  status: {
+    slowed?: number;
+    poisoned?: number;
+    burned?: number;
+  };
+  createdAt: number;
 }
 
 export interface Bullet {
@@ -27,12 +69,24 @@ export interface Bullet {
   targetId: string;
   damage: number;
   speed: number;
+  sourceTowerId: string;
+  crit: boolean;
+  element: ElementType;
+  effect?: string;
+  imgPath: string;
 }
 
+
+/** 游戏整体状态 */
 export interface GameState {
   towers: Tower[];
   enemies: Enemy[];
   bullets: Bullet[];
   lives: number;
   score: number;
+  gold: number;
+  currentWave: number;
+  totalWaves: number;
+  paused: boolean;
+  currentLevelId: string;
 }

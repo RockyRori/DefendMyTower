@@ -5,7 +5,7 @@ export const GRID_WIDTH = 10;
 export const GRID_HEIGHT = 10;
 
 export function findPath(towers: Tower[], start: Position, end: Position): Position[] | null {
-  // 建立二维数组，0 表示可通行，1 表示障碍
+  // 构建二维网格，0 表示可通行，1 表示障碍
   const grid: number[][] = Array.from({ length: GRID_HEIGHT }, () => Array(GRID_WIDTH).fill(0));
   towers.forEach(tower => {
     if (
@@ -16,7 +16,6 @@ export function findPath(towers: Tower[], start: Position, end: Position): Posit
     }
   });
 
-  // BFS 算法寻路
   const queue: Position[] = [];
   const visited: boolean[][] = Array.from({ length: GRID_HEIGHT }, () => Array(GRID_WIDTH).fill(false));
   const parent: (Position | null)[][] = Array.from({ length: GRID_HEIGHT }, () => Array(GRID_WIDTH).fill(null));
@@ -43,7 +42,6 @@ export function findPath(towers: Tower[], start: Position, end: Position): Posit
       }
       return path;
     }
-
     for (const { dx, dy } of directions) {
       const nx = current.x + dx;
       const ny = current.y + dy;
@@ -60,4 +58,21 @@ export function findPath(towers: Tower[], start: Position, end: Position): Posit
     }
   }
   return null;
+}
+export function distance(a: Position, b: Position): number {
+  return Math.sqrt((a.x - b.x) ** 2 + (a.y - b.y) ** 2);
+}
+
+export function interpolatePosition(path: Position[], progress: number): Position {
+  const index = Math.floor(progress);
+  const t = progress - index;
+  if (index < path.length - 1) {
+    const currentPos = path[index];
+    const nextPos = path[index + 1];
+    return {
+      x: currentPos.x + (nextPos.x - currentPos.x) * t,
+      y: currentPos.y + (nextPos.y - currentPos.y) * t,
+    };
+  }
+  return path[path.length - 1];
 }

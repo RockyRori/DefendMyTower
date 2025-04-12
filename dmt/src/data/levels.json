@@ -1,0 +1,15 @@
+{
+    "levels": [{
+            "id": "level1",
+            "name": "Forest Defense",
+            "gold": 500,
+            "waves": 2
+        },
+        {
+            "id": "level2",
+            "name": "Desert Siege",
+            "gold": 400,
+            "waves": 2
+        }
+    ]
+}

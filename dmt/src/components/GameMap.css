@@ -8,3 +8,20 @@
         repeating-linear-gradient(90deg, transparent, transparent 49px, #eee 50px),
         repeating-linear-gradient(180deg, transparent, transparent 49px, #eee 50px);
 }
+
+.entrance {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.exit {
+    position: absolute;
+    left: calc(50px * 9);
+    /* 格子从 0 到 9 */
+    top: calc(50px * 9);
+    width: 50px;
+    height: 50px;
+}
